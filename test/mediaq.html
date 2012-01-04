@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js">
+		</script>
+	
+		<script type="text/javascript" src="../mediaq.js"></script>
+    
+    <script>
+      var mainQueries = [];
+
+			mainQueries.push( mediaq.create({"min-width":350, "max-width":499}, function () { console.log("1"); $("#box").width(350); /* TODO: IMPLEMENT */ }) );
+			mainQueries.push( mediaq.create({"min-width":500, "max-width":699}, function () { console.log("2"); $("#box").width(500);/* TODO: IMPLEMENT */ }) );
+			mainQueries.push( mediaq.create({"min-width":700, "max-width":800}, function () { console.log("3"); $("#box").width(700);/* TODO: IMPLEMENT */ }) );
+
+			$(function() {
+				
+				$(window).resize(function(){
+					mediaq.run(mainQueries);
+				})
+				
+			});
+    </script>
+    
+		<style>
+			html, body {
+				padding: 0px;
+				margin: 0px;
+			}
+		</style>
+
+	</head>
+	<body>
+	  <div id="box" style="margin: 0px auto; width: 350px; min-height: 200px; background: #eee;">
+			resize browser...
+	  </div>
+	</body>
+</html>
